@@ -1,0 +1,37 @@
+pipeline {
+    agent any
+    parameters {
+        string(name: 'Login', defaultValue: '', description: 'Identificador único compuesto por nombre y apellido para login')
+        string(name: 'NombreApellido', defaultValue: '', description: 'Nombre y Apellido del usuario')
+        choice(name: 'Departamento', choices: ['contabilidad', 'finanzas', 'tecnología'], description: 'Grupo correspondiente al área del usuario')
+    }
+    stages {
+        stage('Crear grupo y usuario') {
+            steps {
+                script {
+                    def groupExists = sh(script: "getent group ${params.Departamento}", returnStatus: true) == 0
+                    if (!groupExists) {
+                        sh "sudo groupadd ${params.Departamento}"
+                    }
+                    sh "sudo useradd -m -c '${params.NombreApellido}, Departamento de ${params.Departamento} ' -g ${params.Departamento} ${params.Login}"   
+                }
+            }
+        }
+        stage('asignar password a usuario') {
+            steps {
+                script {
+                    def passwordTemporal = sh(script: "openssl rand -base64 6 | tr -dc 'a-zA-Z0-9' | head -c 8", returnStdout: true).trim()
+                    sh "echo '${params.Login}:${passwordTemporal}' | sudo chpasswd"
+                    echo "La contraseña temporal para el usuario ${params.Login} es: ${passwordTemporal}"
+                }
+            }
+        }
+        stage('expirar password') {
+            steps {
+                script {
+                    sh "sudo chage -d 0 ${params.Login}"
+                }
+            }
+        }
+    }
+}  
