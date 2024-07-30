@@ -1,0 +1,9 @@
+
+- name: Cambiar el e-mail del webmaster
+  lineinfile:
+    path: "{{ apache_config_path }}/000-default.conf"
+    regexp: 'ServerAdmin webmaster@localhost'
+    line: 'ServerAdmin {{ webmaster_email }}'
+  notify:
+    - Reload Apache
+  when: is_ubuntu

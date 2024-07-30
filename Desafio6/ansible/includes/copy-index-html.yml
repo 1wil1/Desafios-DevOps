@@ -1,0 +1,9 @@
+
+- name: copiar index.html al directorio del sitio
+  copy:
+    src: files/index.html
+    dest: "{{ site_dir }}"
+    owner: "{{ apache_owner }}"
+    group: "{{ apache_group }}"
+    mode: '0644'
+  when: is_ubuntu
