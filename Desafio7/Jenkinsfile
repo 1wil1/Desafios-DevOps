@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent {label 'ansible-controller'}
     environment {
         TEMPLATE_FILE = 'Desafio7/ansible/files/index-template.html'
         OUTPUT_FILE = 'Desafio7/ansible/files/index.html'
