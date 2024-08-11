@@ -17,7 +17,6 @@ pipeline {
             steps {
                 script {
                     echo "Branch name: ${env.BRANCH_NAME}"
-                    echo "ANSIBLE_PRIVATE_KEY: ${ANSIBLE_PRIVATE_KEY}"
                 }
             }
         }
@@ -49,12 +48,13 @@ pipeline {
                 """
             }
         }
-        stage('Run Ansible Playbook') {
+        /*stage('Run Ansible Playbook') {
             steps {
                 script {
                //     sh "ansible-playbook -i ./Desafio7/ansible/${INVENTORY_FILE} ./Desafio7/ansible/main.yml -e 'environment=${env.BRANCH_NAME}' --private-key=$ANSIBLE_PRIVATE_KEY"
                 }
             }
         }
+        */
     }
 }
