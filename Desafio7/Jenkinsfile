@@ -7,12 +7,12 @@ pipeline {
     stages {
         stage('Install Ansible collections'){
             steps {
-                sh 'ansible-galaxy collection install -r ./Clase36/actividad/ansible/requirements.yml'
+                sh 'ansible-galaxy collection install -r ./Desafio7/ansible/requirements.yml'
             }
         }
         stage('Run Ansible Playbook from Jenkins') {
             steps {
-                sh 'ansible-playbook -i ./Clase36/actividad/ansible/inventory.ini --private-key=$ANSIBLE_PRIVATE_KEY ./Clase36/actividad/ansible/main.yml'
+                sh 'ansible-playbook -i ./Desafio7/ansible/inventory.ini --private-key=$ANSIBLE_PRIVATE_KEY ./Desafio7/ansible/main.yml'
             }
         }
     }
