@@ -1,8 +1,8 @@
 pipeline {
     agent any
     environment {
-        TEMPLATE_FILE = 'ansible/files/index-template.html'
-        OUTPUT_FILE = 'ansible/files/index.html'
+        TEMPLATE_FILE = 'Desafio7/ansible/files/index-template.html'
+        OUTPUT_FILE = 'Desafio7/ansible/files/index.html'
         INVENTORY_FILE = 'inventory.ini'
     }
     stages {
@@ -15,11 +15,6 @@ pipeline {
             steps {
                 script {
                     echo "Branch name: ${env.BRANCH_NAME}"
-                    // Imprimir el nombre de la máquina
-                    sh 'echo "Machine Name: $(hostname)"'
-                    
-                    // Imprimir la dirección IP
-                    sh 'echo "IP Address: $(hostname -I | awk \'{print $1}\')"'
                 }
             }
         }
