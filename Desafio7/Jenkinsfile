@@ -17,6 +17,7 @@ pipeline {
             steps {
                 script {
                     echo "Branch name: ${env.BRANCH_NAME}"
+                    echo "ANSIBLE_PRIVATE_KEY: ${ANSIBLE_PRIVATE_KEY}"
                 }
             }
         }
