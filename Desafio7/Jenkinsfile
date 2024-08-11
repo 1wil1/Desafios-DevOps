@@ -27,7 +27,7 @@ pipeline {
                     } else {
                         error "No environment defined for branch: ${env.BRANCH_NAME}"
                     }
-                    echo "pwd"
+                    pwd
                     echo "ambiente: ${ambiente}"
                     // Reemplazar {{ambiente}} en el archivo HTML
                     sh "sed 's/{{ambiente}}/${ambiente}/g' ${TEMPLATE_FILE} > ${OUTPUT_FILE}"
