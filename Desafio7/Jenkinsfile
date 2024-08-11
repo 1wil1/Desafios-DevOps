@@ -1,19 +1,54 @@
 pipeline {
-    agent { label 'ansible-controller' }
+    agent {label 'ansible-controller'}
     environment {
-        ANSIBLE_PRIVATE_KEY=credentials('ansible-private-key') 
-        ANSIBLE_CONFIG='./Desafio7/ansible/ansible.cfg'
+        TEMPLATE_FILE = 'Desafio7/ansible/files/index-template.html'
+        OUTPUT_FILE = 'Desafio7/ansible/files/index.html'
+        ANSIBLE_CONFIG='Desafio7/ansible/ansible.cfg'
+        ANSIBLE_PRIVATE_KEY=credentials('ansible-controller-key') 
     }
     stages {
-        stage('Install Ansible collections'){
+        stage('Checkout') {
             steps {
-                sh 'ansible-galaxy collection install -r ./Desafio7/ansible/requirements.yml'
+                checkout scm
             }
         }
+        stage('Debug') {
+            steps {
+                script {
+                    echo "Branch name: ${env.BRANCH_NAME}"
+                }
+            }
+        }
+        stage('Set Environment') {
+            steps {
+                script {
+                    // Definir el ambiente basado en la rama
+                    def ambiente
+                    if (env.BRANCH_NAME == 'dev') {
+                        ambiente = 'Development'
+                    } else if (env.BRANCH_NAME == 'staging') {
+                        ambiente = 'Staging'
+                    } else if (env.BRANCH_NAME == 'main') {
+                        ambiente = 'Production'
+                    }else {
+                        ambiente = 'Production'
+                        env.BRANCH_NAME = 'main'
+                    }
+                    pwd
+                    echo "ambiente: ${ambiente}"
+                    // Reemplazar {{ambiente}} en el archivo HTML
+                    sh "sed 's/{{ambiente}}/${ambiente}/g' ${TEMPLATE_FILE} > ${OUTPUT_FILE}"
+                }
+            }
+        }
+                
         stage('Run Ansible Playbook from Jenkins') {
             steps {
-                sh 'ansible-playbook -i ./Desafio7/ansible/inventory.ini --private-key=$ANSIBLE_PRIVATE_KEY ./Desafio7/ansible/main.yml'
+                sh """
+                ansible-playbook -i ./Desafio7/ansible/inventory.ini --private-key=$ANSIBLE_PRIVATE_KEY ./Desafio7/ansible/main.yml -e 'environment=${env.BRANCH_NAME}'
+                """
             }
         }
+        
     }
 }
