@@ -43,7 +43,7 @@ pipeline {
                 }
             }
         }
-                /*
+                
         stage('Run Ansible Playbook from Jenkins') {
             steps {
                 sh """
@@ -51,7 +51,9 @@ pipeline {
                 """
             }
         }
-        */
+       
+        /* */
+        /*
         stage('Run Ansible Playbook') {
             steps {
                 script {
@@ -59,6 +61,7 @@ pipeline {
                 }
             }
         }
-        
+        /*
+        */
     }
 }
