@@ -4,6 +4,7 @@ pipeline {
         TEMPLATE_FILE = 'Desafio7/ansible/files/index-template.html'
         OUTPUT_FILE = 'Desafio7/ansible/files/index.html'
         INVENTORY_FILE = 'inventory.ini'
+        ANSIBLE_CONFIG='./Desafio7/ansible/ansible.cfg'
     }
     stages {
         stage('Checkout') {
@@ -42,7 +43,7 @@ pipeline {
         stage('Run Ansible Playbook') {
             steps {
                 script {
-                    sh "ansible-playbook -i ./Desafio7/ansible/${INVENTORY_FILE} ./Desafio7/ansible/main.yml -e 'environment=${env.BRANCH_NAME}' --private-key=$ANSIBLE_PRIVATE_KEY --ssh-extra-args='-o StrictHostKeyChecking=no'"
+                    sh "ansible-playbook -i ./Desafio7/ansible/${INVENTORY_FILE} ./Desafio7/ansible/main.yml -e 'environment=${env.BRANCH_NAME}' --private-key=$ANSIBLE_PRIVATE_KEY"
                 }
             }
         }
