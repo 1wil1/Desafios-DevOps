@@ -1,7 +1,0 @@
-
-- name: crear directorio para el sitio
-  file:
-    path: "{{ site_dir }}"
-    state: directory
-    owner: "{{ apache_owner }}"
-    group: "{{ apache_group }}"

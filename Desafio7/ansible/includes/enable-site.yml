@@ -1,6 +1,0 @@
-
-- name: Activa el nuevo sitio
-  command: a2ensite ansible_site.conf
-  notify:
-    - Reload Apache
-  when: is_ubuntu

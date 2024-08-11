@@ -1,6 +1,0 @@
-site_dir: /var/www/html/ansible_site
-apache_service: apache2
-apache_config_path: /etc/{{ apache_service }}/sites-available
-apache_owner: www-data
-apache_group: www-data
-webmaster_email: webmaster@educacionit.com
