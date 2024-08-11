@@ -6,6 +6,11 @@ pipeline {
         INVENTORY_FILE = 'inventory.ini'
     }
     stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
         stage('Debug') {
             steps {
                 script {
