@@ -55,7 +55,7 @@ pipeline {
         stage('Run Ansible Playbook') {
             steps {
                 script {
-                    sh "ansible-playbook -i ./Desafio7/ansible/${INVENTORY_FILE} ./Desafio7/ansible/main.yml -e 'environment=${env.BRANCH_NAME}'"
+                    sh "ansible-playbook -i ./Desafio7/ansible/${INVENTORY_FILE} --private-key=$ANSIBLE_PRIVATE_KEY ./Desafio7/ansible/main.yml -e 'environment=${env.BRANCH_NAME}'"
                 }
             }
         }
