@@ -31,8 +31,6 @@ pipeline {
                         ambiente = 'Staging'
                     } else if (env.BRANCH_NAME == 'main') {
                         ambiente = 'Production'
-                    } else {
-                        error "No environment defined for branch: ${env.BRANCH_NAME}"
                     }
                     pwd
                     echo "ambiente: ${ambiente}"
