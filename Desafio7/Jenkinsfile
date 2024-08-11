@@ -39,6 +39,7 @@ pipeline {
                 }
             }
         }
+                /*
         stage('Run Ansible Playbook from Jenkins') {
             steps {
                 sh """
@@ -46,13 +47,14 @@ pipeline {
                 """
             }
         }
-        /*stage('Run Ansible Playbook') {
+        */
+        stage('Run Ansible Playbook') {
             steps {
                 script {
-               //     sh "ansible-playbook -i ./Desafio7/ansible/${INVENTORY_FILE} ./Desafio7/ansible/main.yml -e 'environment=${env.BRANCH_NAME}' --private-key=$ANSIBLE_PRIVATE_KEY"
+                    sh "ansible-playbook -i ./Desafio7/ansible/${INVENTORY_FILE} ./Desafio7/ansible/main.yml -e 'environment=${env.BRANCH_NAME}' --private-key=$ANSIBLE_PRIVATE_KEY"
                 }
             }
         }
-        */
+        
     }
 }
