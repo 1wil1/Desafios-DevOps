@@ -5,6 +5,7 @@ pipeline {
         OUTPUT_FILE = 'Desafio7/ansible/files/index.html'
         INVENTORY_FILE = 'inventory.ini'
         ANSIBLE_CONFIG='./Desafio7/ansible/ansible.cfg'
+        ANSIBLE_PRIVATE_KEY=credentials('ansible-controller-key') 
     }
     stages {
         stage('Checkout') {
