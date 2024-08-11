@@ -7,7 +7,7 @@ pipeline {
     stages {
         stage('Install Ansible collections'){
             steps {
-                sh 'ansible-galaxy collection install -r ./Clase36/actividad/ansible/requirements.yml'
+                sh 'ansible-galaxy collection install -r ./Desafio7/actividad/ansible/requirements.yml'
             }
         }
         stage('Run Ansible Playbook from Jenkins') {
