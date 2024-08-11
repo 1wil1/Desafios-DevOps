@@ -16,10 +16,10 @@ pipeline {
                 script {
                     echo "Branch name: ${env.BRANCH_NAME}"
                     // Imprimir el nombre de la máquina
-                    echo "Machine Name: $(hostname)"
+                    sh 'echo "Machine Name: $(hostname)"'
                     
                     // Imprimir la dirección IP
-                    echo "IP Address: $(hostname -I | awk \'{print $1}\')"
+                    sh 'echo "IP Address: $(hostname -I | awk \'{print $1}\')"'
                 }
             }
         }
