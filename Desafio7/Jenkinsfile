@@ -42,7 +42,7 @@ pipeline {
         stage('Run Ansible Playbook from Jenkins') {
             steps {
                 sh """
-                ansible-playbook -i ./Desafio7/ansible/inventory.ini --private-key=$ANSIBLE_PRIVATE_KEY ./Desafio7/ansible/main.yml -e 'environment=${env.BRANCH_NAME}'
+                ansible-playbook -i ./Desafio7/ansible/inventory.ini ./Desafio7/ansible/main.yml -e 'environment=${env.BRANCH_NAME}'
                 """
             }
         }
