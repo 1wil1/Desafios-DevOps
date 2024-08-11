@@ -1,10 +1,10 @@
 pipeline {
     agent {label 'ansible-controller'}
     environment {
+        ANSIBLE_PRIVATE_KEY=credentials('ansible-private-key') 
+        ANSIBLE_CONFIG='./Desafio7/ansible/ansible.cfg'
         TEMPLATE_FILE = 'Desafio7/ansible/files/index-template.html'
         OUTPUT_FILE = 'Desafio7/ansible/files/index.html'
-        ANSIBLE_CONFIG='Desafio7/ansible/ansible.cfg'
-        ANSIBLE_PRIVATE_KEY=credentials('ansible-controller-key') 
     }
     stages {
         stage('Checkout') {
