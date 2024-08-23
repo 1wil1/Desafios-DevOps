@@ -17,7 +17,7 @@ env:
   TF_CLOUD_ORGANIZATION: "Desafio8_OrganizationTF"
   TF_API_TOKEN: "${{ secrets.TF_API_TOKEN }}"
   TF_WORKSPACE: "Desafio8_WorkspaceTF"
-  CONFIG_DIRECTORY: "./"
+  CONFIG_DIRECTORY: "./Desafio8"
   
 jobs:
   terraform:
