@@ -5,12 +5,12 @@ on:
     branches: [ "main" ]
     paths: 
       - "Desafio8/**"
-      - ".github/workflows/terraform-plan.yml"
+      - ".github/workflows/terraform-apply.yml"
   pull_request:
     branches: [ "main" ]
     paths: 
       - "Desafio8/**"
-      - ".github/workflows/terraform-plan.yml"
+      - ".github/workflows/terraform-apply.yml"
 
 env:
   TF_CLOUD_ORGANIZATION: "Desafio8_OrganizationTF"
