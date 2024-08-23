@@ -1,6 +1,5 @@
 name: "Terraform Plan"
 
-
 on:
   push:
     branches: [ "main" ]
