@@ -1,7 +1,11 @@
 name: "Terraform Plan"
 
+
 on:
+  push:
+    branches: [ "main" ]
   pull_request:
+    branches: [ "main" ]
 
 env:
   TF_CLOUD_ORGANIZATION: "Desafio8_OrganizationTF"
