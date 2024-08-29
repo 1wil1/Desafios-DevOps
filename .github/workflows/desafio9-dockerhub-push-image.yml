@@ -6,7 +6,7 @@ on:
     branches: [ "main" ]
     paths: 
       - "Desafio9/**"
-      - ".github/workflows/dockerhub-push-image.yml"
+      - ".github/workflows/desafio9-dockerhub-push-image.yml"
       
 jobs:
   build-and-push:
