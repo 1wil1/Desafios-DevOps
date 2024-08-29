@@ -1,5 +1,5 @@
 
-name: Build and Push Docker Image - Multiarch - Desafio9
+name: Build and Push Docker Image - Multiarch - Desafio9.
 
 on:
   push:
