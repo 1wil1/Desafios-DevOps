@@ -28,11 +28,6 @@ jobs:
       uses: docker/build-push-action@v4
       with:
         context: ${{ github.workspace }}/Desafio9
-        file: ${{ github.workspace }}/Clase43/app/Dockerfile
-        # Asume que tu Dockerfile está en la raíz de tu repositorio
-        # Si tu Dockerfile está en una ruta específica, por ejemplo, ./path/to/Dockerfile, cambia 'context' y 'file' como sigue:
-        # context: ./path/to/
-        # file: ./path/to/Dockerfile
         push: true
         tags: edgaregonzalez/clase43:${{ github.run_number }} # Cambia esto con tu nombre de usuario y nombre de imagen
         platforms: linux/amd64,linux/arm64,linux/arm/v7
