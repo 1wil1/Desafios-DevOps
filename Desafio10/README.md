@@ -74,3 +74,4 @@ La aplicación NestJS expone un endpoint básico:
 - GET /: Devuelve un mensaje "Hello World!".
 
 Puedes probar este endpoint accediendo a http://localhost:3000 en tu navegador o utilizando una herramienta como Postman.
+
