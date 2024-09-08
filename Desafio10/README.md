@@ -68,10 +68,31 @@ docker-compose down
 ```
 
 
-## Construcción y Ejecución
+## Evidencia de Pruebas
 La aplicación NestJS expone un endpoint básico:
 
 - GET /: Devuelve un mensaje "Hello World!".
 
 Puedes probar este endpoint accediendo a http://localhost:3000 en tu navegador o utilizando una herramienta como Postman.
 
+
+
+## Diagrama de Alto Nivel
+
+```plaintext
++-----------------+        +------------------+
+|    Aplicación   |        |   Base de Datos  |
+|     NestJS      |        |     MongoDB      |
+|                 |        |                  |
+|   - Dockerfile  |        |   - mongo:latest |
+|   - Docker-     |        |                  |
+|     compose.yaml|        |                  |
+|                 |        |                  |
++-----------------+        +------------------+
+            |                       |
+            |                       |
+            +------------>+---------+
+                |  Red local     |
+                |(Docker network)|
+                +----------------+
+```
