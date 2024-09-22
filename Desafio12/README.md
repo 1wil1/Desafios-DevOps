@@ -1,5 +1,5 @@
 
-# Desafio 12 - Despliegue de Aplicación NestJS con Helm
+# Desafío 12 - Despliegue de Aplicación NestJS con Helm
 
 ## Descripción
 Este proyecto utiliza Helm para gestionar el despliegue de una aplicación NestJS junto con una base de datos MongoDB en Kubernetes. Este chart simplifica la instalación y configuración de la aplicación.
