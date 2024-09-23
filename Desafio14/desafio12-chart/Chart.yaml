@@ -1,0 +1,5 @@
+apiVersion: v2
+name: educacionit-chart
+description: Helm chart para desplegar la aplicación EducacionIT y MongoDB
+version: 0.1.0
+appVersion: "1.0"

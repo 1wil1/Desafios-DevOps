@@ -1,0 +1,23 @@
+replicaCount: 1
+
+image:
+  repository: 1wil1/desafio11
+  tag: "1"
+  pullPolicy: IfNotPresent
+
+service:
+  type: NodePort
+  port: 3000
+  nodePort: 30001
+
+mongo:
+  image:
+    repository: mongo
+    tag: latest
+  mongoUser: root
+  mongoPassword: password
+  mongoDatabase: app-desafio11
+  persistence:
+    enabled: true
+    storageClass: ""
+    size: 1Gi
