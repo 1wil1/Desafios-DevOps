@@ -1,5 +1,5 @@
 
-# Desafío 12 - Instalación de ArgoCD en Minikube y Despliegue de Aplicación NestJS
+# Desafío 13 - Instalación de ArgoCD en Minikube y Despliegue de Aplicación NestJS
 
 ## Descripción
 Esta guía detalla los pasos necesarios para instalar y configurar ArgoCD en un entorno de Minikube, permitiendo la gestión de despliegues de aplicaciones de manera automatizada utilizando un enfoque GitOps.
