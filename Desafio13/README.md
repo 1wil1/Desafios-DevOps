@@ -45,9 +45,7 @@ kubectl get secret argocd-initial-admin-secret -n argocd -o jsonpath="{.data.pas
 
 ## Conectar ArgoCD a un Repositorio Git
 1. Crear una nueva aplicación en el dashboard de ArgoCD.
-2. Configurar la URL del repositorio Git y la ruta del manifiesto. Para este ejercicio:
-    - URL: https://localhost:8080
-    - Usuario: admin
+2. Configurar la URL del repositorio Git y la ruta del manifiesto.
 ## Verificar el Despliegue
 1. Accede al dashboard de ArgoCD.
 2. Verifica el estado de los recursos y la sincronización con el repositorio Git.
