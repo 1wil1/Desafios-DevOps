@@ -1,5 +1,5 @@
 
-# Desafío 12 - Instalación de ArgoCD en Minikube y Despliegue de Aplicación NestJS
+# Desafío 14: Implementación de Despliegue Continuo con ArgoCD y Helm en Kubernetes
 
 ## Descripción
 Esta es una guía completa para desplegar el Helm Chart desarrollado en el desafío anterior utilizando ArgoCD, siguiendo los principios de GitOps.
